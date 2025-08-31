@@ -1,5 +1,7 @@
 packages:
-  - "packages/*"
-
+  - 'packages/*'
+  - 'apps/web/frontend/*'
+  - 'libs/*'
+  - 'apps/*'
 autoInstallPeers: true
 strictPeerDependencies: false

@@ -1,0 +1,4 @@
+@use "../utilities/mixins" as m;
+
+
+@include m.font("Cairo", "../../fonts/cairo.woff2");
