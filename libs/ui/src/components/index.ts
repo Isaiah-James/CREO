@@ -12,3 +12,6 @@ export * from './tooltip';
 export * from './sidebar';
 export * from './label';
 export * from './form';
+export * from './textarea';
+export * from './select';
+export * from './input-opt';

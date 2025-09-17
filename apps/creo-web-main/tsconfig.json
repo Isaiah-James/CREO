@@ -21,7 +21,6 @@
       }
     ],
     "outDir": "dist",
-    "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
@@ -33,7 +32,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "../../libs/auth/src/providers/AuthProvider.tsx"  ],
   "exclude": [
     "out-tsc",
     "dist",

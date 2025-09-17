@@ -70,7 +70,7 @@ function DialogContent({
           'translate-x-[-50%] translate-y-[-50%]',
 
           // QoL
-          'transform-gpu antialiased bg-background gap-4 rounded-lg border p-6 shadow-lg duration-[1000] ease-in-out sm:max-w-lg',
+          'transform-gpu antialiased bg-background gap-4 rounded-xl border p-6 shadow-lg duration-[1000] ease-in-out sm:max-w-lg',
           className
         )}
         {...props}

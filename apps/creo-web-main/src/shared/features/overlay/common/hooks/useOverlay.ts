@@ -20,7 +20,7 @@ export default function useOverlay() {
       overlay.subsection,
       pathname,
       router
-    ])
+    ]);
     
 
   return {

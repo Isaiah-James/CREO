@@ -21,13 +21,14 @@ import {
   Pyramid,
   Search,
   Settings,
-  UserRound,
   Users2
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCallback } from 'react';
 import useOverlay from '../../features/overlay/common/hooks/useOverlay';
+import { useAuth } from '@creo/auth';
 
 // Simple CREO icon placeholder; replace with your actual logo component/SVG
 function CreoMark({ className }: { className?: string }) {
@@ -129,6 +130,7 @@ function NavItem(props: {
 
 export default function AppSidebar() {
   const overlay = useOverlay();
+  const { user } = useAuth();
 
 
   return (
@@ -184,11 +186,11 @@ export default function AppSidebar() {
           </SidebarMenuItem>
 
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip="Profile" variant="outline" size="sm" asChild>
+            <SidebarMenuButton className='text-accent-foreground' tooltip="Profile" variant="outline" size="sm" asChild>
               {/* If Profile navigates to /me or /account, use Link so it can be active */}
               <Link href="/account">
-                <UserRound />
-                <span>Profile</span>
+                <Image src={'/creo.png'} alt='User avatar' width={18} height={18}/>
+                <span>{user?.username}</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

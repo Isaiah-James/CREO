@@ -19,7 +19,7 @@
     "customConditions": ["development"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["apps/web/frontend/creo-web-main/src/*"],
+      "@/*": ["apps/creo-web-main/src/*"],
       "@creo/*": ["libs/*/src"]
     }
   }

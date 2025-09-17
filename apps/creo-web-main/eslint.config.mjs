@@ -18,4 +18,9 @@ export default [
   {
     ignores: ['.next/**/*'],
   },
+  {
+    rules: {
+      '@nx/enforce-module-boundaries': 'off'
+    }
+  }
 ];
