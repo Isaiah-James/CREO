@@ -1,0 +1,13 @@
+{
+  "name": "@creo/creo-web-main",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --experimental-https"
+  },
+  "dependencies": {
+    "next": "~15.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}

@@ -2,5 +2,24 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./libs/ui"
+    },
+    {
+      "path": "./libs/theme"
+    },
+    {
+      "path": "./apps/creo-web-main"
+    },
+    {
+      "path": "./libs/auth"
+    },
+    {
+      "path": "./libs/common"
+    },
+    {
+      "path": "./libs/api-types"
+    }
+  ]
 }
