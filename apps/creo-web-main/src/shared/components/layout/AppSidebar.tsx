@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  SidebarSeparator,
   cn,
   useSidebar,
 } from '@creo/ui';
@@ -33,16 +34,7 @@ import { useAuth } from '@creo/auth';
 // Simple CREO icon placeholder; replace with your actual logo component/SVG
 function CreoMark({ className }: { className?: string }) {
   return (
-    <div
-      className={cn(
-        'flex size-8 items-center justify-center rounded-md border text-xs font-bold',
-        className
-      )}
-      aria-label="CREO"
-      title="CREO"
-    >
-      C
-    </div>
+    <Image src={'/creo.svg'} alt='CREO' width={48} height={48}/>
   );
 }
 
@@ -143,12 +135,10 @@ export default function AppSidebar() {
       <SidebarHeader className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <CreoMark />
-          {/* Title only when expanded */}
-          <span className="text-accent-foreground text-2xl group-data-[collapsible=icon]:hidden">
-            CREO
-          </span>
         </div>
       </SidebarHeader>
+
+      <SidebarSeparator className='mb-2'/>
 
       {/* MIDDLE NAV */}
       <SidebarContent>

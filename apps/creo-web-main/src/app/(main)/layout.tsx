@@ -1,12 +1,12 @@
-import { SidebarInset, SidebarProvider } from '@creo/ui';
-import AppSidebar from '../shared/components/layout/AppSidebar';
-import './global.scss';
-import { cookies } from 'next/headers';
-import { TimeProvider } from '@creo/common';
-import { AuthProvider } from '@creo/auth';
-import OverlayContainer from '../shared/features/overlay/common/components/OverlayContainer';
-import ModalContainer from '../shared/components/modals/modal-container';
 import UsersAPI from '@/domains/users/api/api';
+import { AuthProvider } from '@creo/auth';
+import { TimeProvider } from '@creo/common';
+import { SidebarInset, SidebarProvider } from '@creo/ui';
+import { cookies } from 'next/headers';
+import '../globals.scss';
+import AppSidebar from '@/shared/components/layout/AppSidebar';
+import OverlayContainer from '@/shared/features/overlay/common/components/OverlayContainer';
+import ModalContainer from '@/shared/components/modals/modal-container';
 
 export const metadata = {
   title: 'Home | CREO',
@@ -36,7 +36,8 @@ export default async function RootLayout({
                 <SidebarInset className="flex-1 relative">
                   <OverlayContainer />
                   <ModalContainer />
-                  <div className="flex flex-1">{children}</div>
+                  <div className="flex flex-1">
+                    {children}</div>
                 </SidebarInset>
               </div>
             </SidebarProvider>
