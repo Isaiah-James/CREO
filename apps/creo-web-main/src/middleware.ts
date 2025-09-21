@@ -13,7 +13,11 @@ export function middleware(request: NextRequest) {
 
   if (!isLoggedIn && (!pathname.startsWith('/login') || !pathname.startsWith('/register'))) {
     const url = new URL('/login', request.url);
-    url.searchParams.set('redirect', pathname + request.nextUrl.search);
+
+    if (pathname !== '/') {
+      url.searchParams.set('redirect', pathname + request.nextUrl.search);
+    }
+    
     return NextResponse.redirect(url);
   }
 
