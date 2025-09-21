@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (!isLoggedIn && !pathname.startsWith('/auth')) {
-    const url = new URL('/auth/login', request.url);
+    const url = new URL('/login', request.url);
     url.searchParams.set('redirect', pathname + request.nextUrl.search);
     return NextResponse.redirect(url);
   }
