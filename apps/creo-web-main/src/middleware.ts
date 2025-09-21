@@ -3,17 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/_next/image') ||  
-    pathname === '/favicon.ico' ||
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/images/') ||
-    /\.(png|jpe?g|gif|webp|svg|ico)$/.test(pathname)
-  ) {
-    return NextResponse.next();
-  }
-
   const isLoggedIn = request.cookies.has(
     '__Host_CREO-SURFTlRJVFktVkVSSUZJQ0FUSU9OLUVNQkVERElORw'
   );
@@ -32,5 +21,11 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/:path*'], 
+  matcher: [
+    '/projects/:path*',
+    '/thinktanks/:path*',
+    '/communities/:path*',
+    '/extensions/:path*',
+    '/'
+  ], 
 };
