@@ -66,7 +66,7 @@ export default function LoginForm() {
         className="flex flex-col items-center justify-center gap-5 w-full sm:w-3/4 sm:max-w-3xl p-4"
       >
         <div className="flex flex-col items-center gap-6">
-          <Image src={'/creo.svg'} alt="CREO" width={424} height={424} className='select-none  '/>
+          <Image src={'/CREO.svg'} alt="CREO" width={424} height={424} className='select-none  '/>
           <p className="text-2xl text-center font-light">
             Please login to your account to continue.
           </p>
