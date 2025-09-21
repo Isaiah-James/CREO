@@ -22,10 +22,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/projects/:path*',
-    '/thinktanks/:path*',
-    '/communities/:path*',
-    '/extensions/:path*',
-    '/'
-  ], 
+    '/((?!auth|_next|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico)).*)',
+  ],
 };
