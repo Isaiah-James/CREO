@@ -1,23 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, search } = request.nextUrl;
 
-  const isLoggedIn = request.cookies.has(
-    '__Host_CREO-SURFTlRJVFktVkVSSUZJQ0FUSU9OLUVNQkVERElORw'
-  );
+  const isLoggedIn = request.cookies.has('__Host_CREO-AUTH');
 
-  // Redirect unauthenticated users away from protected routes
-  if (!isLoggedIn && !pathname.startsWith('/login') && !pathname.startsWith('/register')) {
+  // Allow public routes
+  if (pathname.startsWith('/login') || pathname.startsWith('/register')) {
+    return NextResponse.next();
+  }
+
+  // If not logged in, redirect to auth
+  if (!isLoggedIn) {
+    const redirectUri = `https://creoco.net/auth/callback?redirect=${encodeURIComponent(
+      'https://creoco.net' + pathname + search
+    )}`;
+
+    // Redirect to auth frontend, which will handle OIDC with identity.creoco.net
     const url = new URL('https://auth.creoco.net/login');
-
-    if (pathname !== '/') {
-      url.searchParams.set('redirect', pathname + request.nextUrl.search);
-    }
+    url.searchParams.set('callbackUrl', redirectUri);
 
     return NextResponse.redirect(url);
   }
 
+  // Otherwise continue as normal
   return NextResponse.next();
 }
 
