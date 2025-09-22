@@ -68,6 +68,7 @@ export default function LoginForm() {
         >
           <div className="flex flex-col items-center gap-6">
             <Image
+              priority
               src={'/CREO.svg'}
               alt="CREO"
               width={424}
