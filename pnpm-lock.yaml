@@ -241,6 +241,18 @@ importers:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
 
+  apps/creo-web-platform:
+    dependencies:
+      next:
+        specifier: ~15.2.4
+        version: 15.2.5(@babel/core@7.28.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.90.0)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+
   libs/api-types: {}
 
   libs/auth: {}
