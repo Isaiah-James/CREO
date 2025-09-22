@@ -9,7 +9,7 @@ export default function ProjectsHomepage() {
 
   return (
     <div className="flex flex-1 items-center justify-center p-4">
-      <aside className="flex flex-col h-full w-1/4 gap-4">
+      <aside className="flex flex-col h-full w-1/4 max-w-lg gap-4">
         <div className="group flex items-center gap-3 p-2 rounded-2xl hover:bg-muted cursor-pointer transition duration-300">
           <Image
             src="/creo.png"
