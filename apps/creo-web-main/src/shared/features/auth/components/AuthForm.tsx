@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import RegisterForm from './RegisterForm';
-import LoginForm from './LoginForm';
+import LoginForm from '../../../../../../creo-web-auth/src/components/LoginForm';
 
 export default function AuthForm() {
     const params = useSearchParams();

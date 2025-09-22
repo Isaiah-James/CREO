@@ -23,6 +23,9 @@
     },
     {
       "path": "./apps/creo-web-platform"
+    },
+    {
+      "path": "./apps/creo-web-auth"
     }
   ]
 }
