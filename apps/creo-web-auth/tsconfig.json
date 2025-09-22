@@ -20,16 +20,14 @@
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
-    "../../apps/creo-web-main/.next/types/**/*.ts",
-    "../../dist/apps/creo-web-main/.next/types/**/*.ts",
+    "../../apps/creo-web-auth/.next/types/**/*.ts",
+    "../../dist/apps/creo-web-auth/.next/types/**/*.ts",
     "next-env.d.ts",
     "src/**/*.js",
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    ".next/types/**/*.ts",
-    "../../libs/auth/src/providers/AuthProvider.tsx",
-    "../creo-web-auth/src/components/LoginForm.tsx"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "out-tsc",
@@ -46,9 +44,6 @@
   "references": [
     {
       "path": "../../libs/ui"
-    },
-    {
-      "path": "../../libs/common"
     },
     {
       "path": "../../libs/auth"

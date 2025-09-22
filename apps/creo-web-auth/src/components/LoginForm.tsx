@@ -22,7 +22,7 @@ import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ButtonHTMLAttributes, useEffect, useState } from 'react';
 import Link from 'next/link';
-import Config from '@/shared/utils/config';
+import Config from '../utils/config';
 
 export default function LoginForm() {
   const router = useRouter();

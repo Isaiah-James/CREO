@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 138.36 159.77">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke: #ff004c;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #000b30;
+        font-family: Cairo-Light, Cairo;
+        font-size: 10.39px;
+        font-weight: 300;
+        letter-spacing: -.07em;
+      }
+
+      .cls-4 {
+        fill: #ff004c;
+        font-family: Cairo-ExtraLight, Cairo;
+        font-size: 36px;
+        font-weight: 200;
+        letter-spacing: -.08em;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="68.97" cy="79.79" fx="68.97" fy="79.79" r="65.79" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00000e"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+  </defs>
+  <polygon class="cls-1" points="137.86 119.54 137.86 40.23 69.18 .58 .5 40.23 .5 119.54 69.18 159.19 137.86 119.54"/>
+  <polygon class="cls-2" points="129.88 114.95 129.88 44.62 68.97 9.45 8.06 44.62 8.06 114.95 68.97 150.12 129.88 114.95"/>
+  <text class="cls-4" transform="translate(14.08 88.5) scale(1.43 1)"><tspan x="0" y="0">CREO</tspan></text>
+  <text class="cls-3" transform="translate(18.33 104.77) scale(1.32 1)"><tspan x="0" y="0">Dream. Think. Create.</tspan></text>
+</svg>
