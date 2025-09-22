@@ -1,5 +1,4 @@
 import {
-  Calendar,
   Form,
   FormControl,
   FormField,
@@ -71,10 +70,6 @@ const STEPS: MenuStep[] = [
     id: 'project-details',
     content: (controls) => <ProjectDetails controls={controls} />,
   },
-  {
-    id: 'project-duedate',
-    content: (controls) => <ProjectDueDateStep controls={controls} />,
-  },
 ];
 
 export default function CreateProjectModal() {
@@ -95,6 +90,8 @@ const formSchema = z.object({
   slogan: z.string(),
   visibility: z.enum(['private', 'public']),
   thinktank: z.enum(THINKTANKS.map((s) => s.id.toString())),
+  dueDate: z.date().optional(),
+  startDate: z.date().optional(),
 });
 
 type FormType = z.infer<typeof formSchema>;
@@ -110,6 +107,8 @@ const ProjectDetails: React.FC<{ controls: MultistepMenuControls }> = ({
       slogan: '',
       visibility: 'private',
       thinktank: '0',
+      dueDate: undefined,
+      startDate: undefined,
     },
   });
 
@@ -232,10 +231,4 @@ const ProjectDetails: React.FC<{ controls: MultistepMenuControls }> = ({
       </form>
     </Form>
   );
-};
-
-const ProjectDueDateStep: React.FC<{ controls: MultistepMenuControls }> = ({
-  controls,
-}) => {
-  return <Calendar fixedWeeks className="w-full" mode="single" />;
 };

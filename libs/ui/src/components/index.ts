@@ -15,3 +15,4 @@ export * from './form';
 export * from './textarea';
 export * from './select';
 export * from './input-opt';
+export * from './switch';

@@ -1,6 +1,6 @@
 import React from 'react';
-import ProjectsHeader from '../../domains/projects/home/components/layout/projects-header';
 import { Metadata } from 'next';
+import ProjectsHeader from '@/domains/projects/home/components/layout/projects-header';
 
 interface Props {
   children: React.ReactNode;

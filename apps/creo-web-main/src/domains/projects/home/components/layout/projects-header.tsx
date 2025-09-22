@@ -20,7 +20,6 @@ export default function ProjectsHeader() {
 
         <div className="flex items-center gap-2">
           <HeaderNavButton href="/projects" label="Home" />
-          <HeaderNavButton href="/projects/dashboard" label="Dashboard" />
           <HeaderNavButton href="/projects/creators" label="Creators" />
           <HeaderNavButton href="/projects/explore" label="Explore" />
         </div>

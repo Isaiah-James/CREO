@@ -20,6 +20,9 @@
     },
     {
       "path": "./libs/api-types"
+    },
+    {
+      "path": "./apps/creo-web-platform"
     }
   ]
 }
