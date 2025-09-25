@@ -47,6 +47,9 @@
     },
     {
       "path": "../../libs/auth"
+    },
+    {
+      "path": "../../libs/common"
     }
   ]
 }

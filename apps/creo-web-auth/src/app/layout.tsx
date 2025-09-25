@@ -1,4 +1,5 @@
 import './globals.scss';
+import { TimeProvider } from '@creo/common';
 
 export const metadata = {
   title: 'Welcome to creo-web-auth',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <TimeProvider>
+        <body className="bg-black">{children}</body>
+      </TimeProvider>
     </html>
   );
 }
