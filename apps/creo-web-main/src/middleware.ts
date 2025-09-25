@@ -29,8 +29,8 @@ export async function middleware(request: NextRequest) {
     url.searchParams.set('scope', 'openid profile email');
     url.searchParams.set('code_challenge_method', 'S256');
     url.searchParams.set('code_challenge', challenge);
-    url.searchParams.set('state', Math.random().toString(36).substring(2, 15));
-    url.searchParams.set('nonce', Math.random().toString(36).substring(2, 15));
+    url.searchParams.set('state', generateRandomString(128));
+    url.searchParams.set('nonce', generateRandomString(128));
 
     return NextResponse.redirect(url);
   }
@@ -66,4 +66,14 @@ async function generateChallenge(verifier: string) {
     .replace(/\//g, "_")
     .replace(/=+$/, ""); // base64url
   return base64;
+}
+
+function generateRandomString(length = 128) {
+  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
+  const array = new Uint8Array(length);
+  crypto.getRandomValues(array);
+
+  return Array.from(array)
+    .map(x => charset[x % charset.length])
+    .join("");
 }
