@@ -23,11 +23,13 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { ButtonHTMLAttributes, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Config from '../utils/config';
+import { getTimeBasedGreeting, useTime } from '@creo/common';
 
 export default function LoginForm() {
   const router = useRouter();
   const params = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { now } = useTime();
 
   const schema = z.object({
     identifier: z.string().min(2).max(100),
@@ -66,7 +68,7 @@ export default function LoginForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col items-center justify-center gap-5 w-full"
         >
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-10">
             <Image
               priority
               src={'/CREO.svg'}
@@ -76,7 +78,7 @@ export default function LoginForm() {
               className="select-none  "
             />
             <p className="text-2xl text-center font-light">
-              Please login to your account to continue.
+              {getTimeBasedGreeting(now)}. Please login to continue:
             </p>
           </div>
           {/* <Separator className="mt-4" /> */}
@@ -193,10 +195,7 @@ export default function LoginForm() {
 
           <p className="text-sm text-muted-foreground">
             Don&apos; t have an account?{' '}
-            <Link
-              href="/register"
-              className="text-accent-foreground underline"
-            >
+            <Link href="/register" className="text-accent-foreground underline">
               Register
             </Link>
             .
