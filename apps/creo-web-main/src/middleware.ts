@@ -1,9 +1,6 @@
-import { hash } from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
 
-const verifier = `wJ3vYdT5uR8pQ0fK7mXcLbZ6aN2hHqE9tG4sPoV1iUjCkM8rDyFzWnSeAxBlOgTwR7vYdT5uR8pQ0fK7mXcLbZ6aN2hHqE9tG`;
-
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
   const isLoggedIn = request.cookies.has('__Host_CREO-AUTH');
@@ -19,7 +16,9 @@ export function middleware(request: NextRequest) {
       'https://creoco.net' + pathname + search
     )}`;
 
-    const challenge = encodeURIComponent(hash('sha256', verifier));
+    const verifier = generateVerifier();
+    const challenge = await generateChallenge(verifier);
+
 
     // Redirect to auth frontend, which will handle OIDC with identity.creoco.net
     const url = new URL(`https://auth.creoco.net/login`);
@@ -45,3 +44,26 @@ export const config = {
     '/((?!api|_next|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico)).*)',
   ],
 };
+
+
+// Generate a random code verifier (43–128 chars)
+function generateVerifier() {
+  const array = new Uint8Array(64);
+  crypto.getRandomValues(array);
+  return btoa(String.fromCharCode(...array))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, ""); // base64url
+}
+
+// Create a code challenge from the verifier
+async function generateChallenge(verifier: string) {
+  const data = new TextEncoder().encode(verifier);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(digest));
+  const base64 = btoa(String.fromCharCode(...hashArray))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, ""); // base64url
+  return base64;
+}
