@@ -88,12 +88,9 @@ export default function LoginForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
+                <FormLabel>Username / Email:</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder="Username (or Email)"
-                    {...field}
-                    disabled={isSubmitting}
-                  />
+                  <Input {...field} disabled={isSubmitting} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,13 +102,9 @@ export default function LoginForm() {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
+                <FormLabel>Password:</FormLabel>
                 <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    {...field}
-                    disabled={isSubmitting}
-                  />
+                  <Input type="password" {...field} disabled={isSubmitting} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -123,8 +116,8 @@ export default function LoginForm() {
               name="remember"
               control={form.control}
               render={({ field }) => (
-                <FormItem className="flex items-center gap-4 px-3">
-                  <FormLabel className="text-muted-foreground">
+                <FormItem className="flex items-center gap-4">
+                  <FormLabel>
                     Remember Me
                   </FormLabel>
                   <FormControl>
@@ -234,7 +227,9 @@ const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({
         height={44}
       />
 
-      <span className="ml-2">{providerNames[provider]}</span>
+      <span className="ml-2 hidden sm:inline-flex">
+        {providerNames[provider]}
+      </span>
     </Button>
   );
 };

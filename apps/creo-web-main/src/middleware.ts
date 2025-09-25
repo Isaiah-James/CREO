@@ -16,7 +16,7 @@ export async function middleware(request: NextRequest) {
       'https://creoco.net' + pathname + search
     )}`;
 
-    const verifier = generateVerifier();
+    const verifier = generateRandomString(128);
     const challenge = await generateChallenge(verifier);
 
 
@@ -44,17 +44,6 @@ export const config = {
     '/((?!api|_next|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico)).*)',
   ],
 };
-
-
-// Generate a random code verifier (43–128 chars)
-function generateVerifier() {
-  const array = new Uint8Array(64);
-  crypto.getRandomValues(array);
-  return btoa(String.fromCharCode(...array))
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, ""); // base64url
-}
 
 // Create a code challenge from the verifier
 async function generateChallenge(verifier: string) {
